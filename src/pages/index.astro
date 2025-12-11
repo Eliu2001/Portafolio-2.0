@@ -1,16 +1,25 @@
 ---
+import MainLayout from "../layouts/MainLayout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
 
+import Hero from "../components/Hero.jsx";
+import About from "../components/About.jsx";
+import Skills from "../components/Skills.jsx";
+import Projects from "../components/Projects.jsx";
+import ContactForm from "../components/ContactForm.jsx";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<MainLayout title="Mi Portafolio">
+  <Navbar />
+
+  <main class="max-w-6xl mx-auto px-4">
+    <Hero />
+    <About />
+    <Skills />
+    <Projects />
+    <ContactForm />
+  </main>
+
+  <Footer />
+</MainLayout>

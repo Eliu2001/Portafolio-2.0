@@ -1,1 +1,16 @@
 @import "tailwindcss";
+
+.name-text span:after { 
+    content: 'Germain';
+    animation: words 6s infinite;
+}
+
+@keyframes words {
+    0%, 33% { content: 'Germain';
+    color: #00ff7f; }
+    34%, 66% { content: 'Desarrollador';
+    color: #ff00ff; }
+    67%, 100% { content: 'Creativo'; 
+    color: #ffd700; }
+
+}

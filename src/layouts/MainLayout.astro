@@ -1,0 +1,14 @@
+---
+import '../styles/global.css';
+const { title = "Portfolio" } = Astro.props;
+---
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>{title}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body class="bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-200">
+    <slot />
+  </body>
+</html>
