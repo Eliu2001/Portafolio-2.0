@@ -5,10 +5,12 @@ import { Send, CheckCircle } from 'lucide-react';
 export default function ContactForm() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setError('');
 
     const formData = new FormData(e.target);
     
@@ -18,12 +20,18 @@ export default function ContactForm() {
         body: formData
       });
 
+      const data = await response.json();
+
       if (response.ok) {
         setIsSubmitted(true);
         e.target.reset();
         setTimeout(() => setIsSubmitted(false), 5000);
+      } else {
+        setError(data.message || 'Error al enviar el mensaje');
+        console.error('Error:', data);
       }
     } catch (error) {
+      setError('Error de conexión. Intenta de nuevo.');
       console.error('Error al enviar:', error);
     } finally {
       setIsSubmitting(false);
@@ -54,7 +62,7 @@ export default function ContactForm() {
             <input 
               type="hidden" 
               name="access_key" 
-              value={import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY}
+              value={import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY || "d0b6eec6-8347-4efe-b7ba-eb87f11092b5"}
             />
             
             {/* Honeypot para spam */}
@@ -159,6 +167,16 @@ export default function ContactForm() {
                 className="p-4 bg-green-900/20 border border-green-500 rounded-lg text-center text-green-400"
               >
                 ¡Gracias! Te responderé pronto 🚀
+              </motion.div>
+            )}
+
+            {error && (
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                className="p-4 bg-red-900/20 border border-red-500 rounded-lg text-center text-red-400"
+              >
+                {error}
               </motion.div>
             )}
           </form>
