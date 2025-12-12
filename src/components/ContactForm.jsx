@@ -50,11 +50,11 @@ export default function ContactForm() {
             onSubmit={handleSubmit}
             className="max-w-2xl mx-auto space-y-6"
           >
-            {/* Access Key - REEMPLAZA CON TU KEY DE WEB3FORMS */}
+            {/* Access Key de Web3Forms */}
             <input 
               type="hidden" 
               name="access_key" 
-              value="TU_ACCESS_KEY_AQUI"
+              value={import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY}
             />
             
             {/* Honeypot para spam */}
