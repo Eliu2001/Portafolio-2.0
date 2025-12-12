@@ -36,7 +36,6 @@ export default function Skills() {
     "Vite",
     "Spring Boot",
     "Linux",
-    "AWS",
     "Vercel",
     "Netlify",
     "Figma",

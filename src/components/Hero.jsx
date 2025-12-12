@@ -108,18 +108,19 @@ export default function Hero() {
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0}}
       transition={{ duration: 0.6, delay: 0.6 }}
-      className="flex items-center gap-4 justify-center">
+      className="flex flex-col md:flex-row items-center gap-4 justify-center">
         <motion.a
           href="#projects"
           whileHover={{ scale: 1.05, rotate: 2 }}
           whileTap={{ scale: 0.95, rotate: -2 }}
           transition={{ type: "spring", stiffness: 300 }}
-          className="px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors inline-block"
+          className="px-4 py-2 md:px-6 md:py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors inline-block text-sm md:text-base"
         >
           Ver proyectos
         </motion.a>
 
         {/* Iconos sociales */}
+        <div className="flex items-center gap-4">
         <motion.a
           href="https://github.com/Eliu2001"
           target="_blank"
@@ -141,6 +142,7 @@ export default function Hero() {
         >
           <Linkedin className="w-6 h-6" />
         </motion.a>
+        </div>
       </motion.div>
       </div>
     </section>
