@@ -62,16 +62,18 @@ export default function ContactForm() {
             <input 
               type="hidden" 
               name="access_key" 
-              value={import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY || "d0b6eec6-8347-4efe-b7ba-eb87f11092b5"}
+              value="d0b6eec6-8347-4efe-b7ba-eb87f11092b5"
             />
             
-            {/* Honeypot para spam */}
+            {/* Honeypot para spam - debe estar vacío */}
             <input 
-              type="checkbox" 
-              name="botcheck" 
-              className="hidden" 
+              type="text" 
+              name="botcheck"
               style={{ display: 'none' }}
             />
+
+            {/* Redirect opcional */}
+            <input type="hidden" name="redirect" value="false" />
 
             <motion.div
               initial={{ opacity: 0, x: -20 }}
