@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
+import { Github, Linkedin } from 'lucide-react';
 
 export default function Hero() {
   const [stars, setStars] = useState([]);
@@ -106,7 +107,8 @@ export default function Hero() {
       <motion.div 
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0}}
-      transition={{ duration: 0.6, delay: 0.6 }}>
+      transition={{ duration: 0.6, delay: 0.6 }}
+      className="flex items-center gap-4 justify-center">
         <motion.a
           href="#projects"
           whileHover={{ scale: 1.05, rotate: 2 }}
@@ -115,6 +117,29 @@ export default function Hero() {
           className="px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors inline-block"
         >
           Ver proyectos
+        </motion.a>
+
+        {/* Iconos sociales */}
+        <motion.a
+          href="https://github.com/Eliu2001"
+          target="_blank"
+          rel="noopener noreferrer"
+          whileHover={{ scale: 1.2 }}
+          whileTap={{ scale: 0.9 }}
+          className="p-3 bg-gray-800 text-white rounded-full hover:bg-gray-700 transition-colors"
+        >
+          <Github className="w-6 h-6" />
+        </motion.a>
+
+        <motion.a
+          href="https://www.linkedin.com/in/gsepulvedav/"
+          target="_blank"
+          rel="noopener noreferrer"
+          whileHover={{ scale: 1.2 }}
+          whileTap={{ scale: 0.9 }}
+          className="p-3 bg-gray-800 text-white rounded-full hover:bg-gray-700 transition-colors"
+        >
+          <Linkedin className="w-6 h-6" />
         </motion.a>
       </motion.div>
       </div>
